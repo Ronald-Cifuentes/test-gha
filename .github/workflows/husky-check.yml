@@ -13,17 +13,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Print all environment variables
-        run: |
-          echo "Environment Variables:"
-          printenv
-
       - name: Print all vars context as JSON
-        run: |
-          echo "Vars context:"
-          echo "${{ toJSON(vars) }}"
-          
-      - name: Print environment variables 2
-        run: printenv
-
-        
+        run: ./check.sh ${{ toJSON(vars) }}
