@@ -7,6 +7,7 @@ on:
 
 jobs:
   my_job:
+    environment: ENV
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -21,7 +22,6 @@ jobs:
         run: |
           echo "Vars context:"
           echo "${{ toJSON(vars) }}"
-
           
       - name: Print environment variables 2
         run: printenv
