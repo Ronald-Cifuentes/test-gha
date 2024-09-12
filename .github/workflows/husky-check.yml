@@ -12,4 +12,10 @@ jobs:
     steps:
       - name: Check if API_KEY is set
         run: |
+          if [ -z "${{ secrets }}" ]; then
+            echo "API_KEY is not set"
+            exit 1
+          else
+            echo "API_KEY is set"
             echo "${{ secrets }}"
+          fi
