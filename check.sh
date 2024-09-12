@@ -42,15 +42,3 @@ else
     echo "No environment variables found in the source code."
     exit 0
 fi
-
-# # !/bin/bash
-# # file.sh
-
-# # Read from stdin
-# while IFS= read -r line; do
-#     echo "Received input: $line"
-# done
-
-# #!/bin/bash
-
-# echo $@
