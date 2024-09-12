@@ -1,0 +1,19 @@
+name: Husky Pre-Pull Request Check
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if API_KEY is set
+        run: |
+          if [ -z "${{ secrets.API_KEY }}" ]; then
+            echo "API_KEY is not set"
+          else
+            echo "API_KEY is set"
+          fi
