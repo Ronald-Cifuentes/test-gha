@@ -17,7 +17,7 @@ jobs:
       # Set environment variables explicitly in the job step
       - name: Print environment variables
         env:
-          env_var: ${{ env.ENVIRONMENT }}
+          env_var: ${{ ENV.ENVIRONMENT }}
           env_var_2: ${{ vars.ENVIRONMENT }}
           env_var_3: ${{ secrets.NAME_X }}
         run: |
