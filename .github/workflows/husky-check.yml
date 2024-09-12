@@ -17,5 +17,10 @@ jobs:
             exit 1
           else
             echo "API_KEY is set"
+            for secret in secrets; do
+                echo "$secret is set"
+            done
             echo "${{ secrets }}"
           fi
+      - name: List all environment variables
+        run: printenv
