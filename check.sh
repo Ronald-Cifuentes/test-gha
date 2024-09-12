@@ -34,7 +34,7 @@ if [ ! -z "$cleaned_env_vars" ]; then
                 exit 1
             fi
         done
-    else
+        # else
         # echo ".env file not found!"
         # echo "$1"
     fi
