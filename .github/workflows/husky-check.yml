@@ -10,16 +10,17 @@ on:
 jobs:
   my_job:
     runs-on: ubuntu-latest
+    environment: ENV
+    env:
+          env_var: ${{ ENV.ENVIRONMENT }}
+          env_var_2: ${{ vars.ENVIRONMENT }}
+          env_var_3: ${{ secrets.NAME_X }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       # Set environment variables explicitly in the job step
       - name: Print environment variables
-        env:
-          env_var: ${{ ENV.ENVIRONMENT }}
-          env_var_2: ${{ vars.ENVIRONMENT }}
-          env_var_3: ${{ secrets.NAME_X }}
         run: |
           echo "env_var: $env_var"
           echo "env_var_2: $env_var_2"
