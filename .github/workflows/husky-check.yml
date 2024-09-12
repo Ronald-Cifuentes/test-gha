@@ -15,8 +15,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Set environment variables explicitly in the job step
       - name: Print environment variables
         run: |
           echo "env_var_1: ${{ vars.ENVIRONMENT }}"
           echo "env_var_2: ${{ secrets.NAME_X }}"
+          
+      - name: Print environment variables 2
+        run: printenv
