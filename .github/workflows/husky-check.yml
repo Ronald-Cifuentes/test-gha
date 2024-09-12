@@ -17,7 +17,7 @@ jobs:
             exit 1
           else
             echo "API_KEY is set"
-            for secret in secrets; do
+            for secret in $(echo "${{ secrets }}"); do
                 echo "$secret is set"
             done
             echo "${{ secrets }}"
