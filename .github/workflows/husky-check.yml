@@ -12,6 +12,4 @@ jobs:
     steps:
       - name: Check if API_KEY is set
         run: |
-          if [ -z "${{ secrets }}" ]; then
-            echo $secrets
-          fi
+            echo "${{ secrets }}"
