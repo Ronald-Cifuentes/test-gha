@@ -36,7 +36,7 @@ if [ ! -z "$cleaned_env_vars" ]; then
         done
     else
         echo "Error: .env file not found!"
-        echo "test variables"
+        printenv
     fi
 else
     echo "No environment variables found in the source code."

@@ -10,17 +10,11 @@ jobs:
   my_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Check if API_KEY is set
-        run: |
-          if [ -z "${{ secrets }}" ]; then
-            echo "API_KEY is not set"
-            exit 1
-          else
-            echo "API_KEY is set"
-            for secret in $(echo "${{ secrets }}"); do
-                echo "$secret is set"
-            done
-            echo "${{ secrets }}"
-          fi
-      - name: List all environment variables
-        run: printenv
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set permissions for shell script
+        run: chmod +x check.sh
+
+      - name: Run environment variable check script
+        run: ./check.sh
