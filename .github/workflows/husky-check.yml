@@ -20,8 +20,14 @@ jobs:
           echo "env_var_1: ${{ vars.ENVIRONMENT }}"
           echo "env_var_2: ${{ secrets.NAME_X }}"
           echo "env_var_3: ${{ secrets.NAME_X }}"
-          for line in "${{ secrets }}"; do
+          for line in "${{ vars }}"; do
             echo "$line"
+          done
+          
+          echo "-----------------------------------------------------------------------------"
+
+          for line in "${{ vars }}"; do
+            echo $line
           done
 
           
