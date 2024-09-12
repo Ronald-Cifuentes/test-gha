@@ -1,10 +1,16 @@
 name: Husky Pre-Pull Request Check
 
+# on:
+#   pull_request:
+#     branches:
+#       - main
+#       - develop
 on:
-  pull_request:
-    branches:
-      - main
-      - develop
+  workflow_dispatch:
+env:
+  # Setting an environment variable with the value of a configuration variable
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+  env_var_2: ${{ vars.ENVIRONMENT }}
 
 jobs:
   my_job:
@@ -13,6 +19,8 @@ jobs:
       - name: Print environment variables
         run: |
           echo "GITHUB_ENV: $ENVIRONMENT"
+          echo "variable from shell environment : $env_var"
+          echo "variable from shell environment : $env_var_2"
       # - name: Checkout repository
       #   uses: actions/checkout@v3
 
