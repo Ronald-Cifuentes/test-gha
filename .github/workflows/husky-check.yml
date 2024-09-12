@@ -4,31 +4,23 @@ on:
     branches:
       - main
       - develop
-# on:
-#   workflow_dispatch:
 
 jobs:
   my_job:
     runs-on: ubuntu-latest
-    environment: ENV
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Print environment variables
+      - name: Print all environment variables
         run: |
-          echo "env_var_1: ${{ vars.ENVIRONMENT }}"
-          echo "env_var_2: ${{ secrets.NAME_X }}"
-          echo "env_var_3: ${{ secrets.NAME_X }}"
-          for line in "${{ vars }}"; do
-            echo "$line"
-          done
-          
-          echo "-----------------------------------------------------------------------------"
+          echo "Environment Variables:"
+          printenv
 
-          for line in "${{ vars }}"; do
-            echo $line
-          done
+      - name: Print all vars context as JSON
+        run: |
+          echo "Vars context:"
+          echo "${{ toJSON(vars) }}"
 
           
       - name: Print environment variables 2
