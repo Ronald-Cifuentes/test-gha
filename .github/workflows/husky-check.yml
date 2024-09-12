@@ -1,5 +1,4 @@
 name: Husky Pre-Pull Request Check
-
 on:
   pull_request:
     branches:
@@ -8,12 +7,11 @@ on:
 
 jobs:
   my_job:
+    environment: ENV
     runs-on: ubuntu-latest
     steps:
-      - name: Check if API_KEY is set
-        run: |
-          if [ -z "${{ secrets.API_KEY }}" ]; then
-            echo "API_KEY is not set"
-          else
-            echo "API_KEY is set"
-          fi
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Print all vars context as JSON
+        run: ./check.sh "${{ toJSON(vars) }}"
