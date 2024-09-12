@@ -17,18 +17,10 @@ jobs:
       # Set environment variables explicitly in the job step
       - name: Print environment variables
         env:
-          env_var: ${{ vars.ENV_CONTEXT_VAR }}
+          env_var: ${{ ENVIRONMENT }}
           env_var_2: ${{ vars.ENVIRONMENT }}
           env_var_3: ${{ secrets.NAME_X }}
         run: |
           echo "env_var: $env_var"
           echo "env_var_2: $env_var_2"
-          echo "env_var_3: $env_var_3"  # Be cautious when printing secrets
-      # - name: Checkout repository
-      #   uses: actions/checkout@v3
-
-      # - name: Set permissions for shell script
-      #   run: chmod +x check.sh
-
-      # - name: Run environment variable check script
-      #   run: ./check.sh
+          echo "env_var_3: $env_var_3"
